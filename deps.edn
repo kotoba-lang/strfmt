@@ -1,0 +1,16 @@
+;; A floor that pulls a dependency is not a floor.
+{:paths ["src"]
+ :deps {org.clojure/clojure {:mvn/version "1.12.0"}
+        ;; Hex and decimal rendering of a 64-bit value is exactly where a JS
+        ;; double loses precision above 2^53, so the digits come from i64
+        ;; rather than the host. A workspace git dep, not third-party maven.
+        io.github.kotoba-lang/i64
+        {:git/url "https://github.com/kotoba-lang/i64.git"
+         :git/sha "b0b383a861ee4ed674a3ed68efedd86dd84ef1e1"}}
+ :aliases
+ {:test {:extra-paths ["test"]
+         :extra-deps {io.github.cognitect-labs/test-runner
+                      {:git/url "https://github.com/cognitect-labs/test-runner.git"
+                       :git/sha "dfb30dd6605cb6c0efc275e1df1736f6e90d4d73"}}
+         :main-opts ["-m" "cognitect.test-runner"]
+         :exec-fn cognitect.test-runner.api/test}}}
