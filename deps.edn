@@ -1,6 +1,11 @@
 ;; A floor that pulls a dependency is not a floor.
 {:paths ["src"]
- :deps {org.clojure/clojure {:mvn/version "1.12.0"}
+ :deps {
+        ;; kotoba.lang.text, not clojure.string. Pinned as an explicit floor:
+        ;; tools.deps takes the NEWEST sha it is shown, so without a floor here
+        ;; this repo silently rides whatever a sibling happens to name.
+        io.github.kotoba-lang/text {:git/sha "73bdb13ae7a3d004b44bca08be03a3191157a38f"}
+       org.clojure/clojure {:mvn/version "1.12.0"}
         ;; Hex and decimal rendering of a 64-bit value is exactly where a JS
         ;; double loses precision above 2^53, so the digits come from i64
         ;; rather than the host. A workspace git dep, not third-party maven.

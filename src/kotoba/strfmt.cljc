@@ -23,7 +23,7 @@
   `kotoba-lang/fmt` is a different thing entirely -- a deterministic EDN
   source formatter, the rustfmt equivalent. This is string formatting."
   (:refer-clojure :exclude [format])
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [kotoba.i64 :as i64]))
 
 (defn- pad [s width zero? left?]
@@ -55,7 +55,7 @@
             \s (str value)
             \d (i64/->string (i64/->i64 value))
             \x (hex value)
-            \X (str/upper-case (hex value))
+            \X (str/upper (hex value))
             \f #?(:clj (String/format "%f" (into-array Object [(double value)]))
                   :cljs (.toFixed (js/Number value) 6))
             (throw (ex-info "unsupported format directive"
