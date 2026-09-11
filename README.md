@@ -56,7 +56,7 @@ letters.
 
 ```sh
 clojure -M:test                                      # JVM
-npx nbb@1.4.210 --classpath src:test:<i64-src> run-tests.cljs
+npx nbb@1.4.210 --classpath src:test:<i64-src> run-tests.cljk
 ```
 
 Both run the **same** `.cljc` suite: `4 tests, 16 assertions, 0 failures`.
