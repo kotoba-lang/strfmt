@@ -55,7 +55,7 @@ letters.
 ## Verify
 
 ```sh
-clojure -M:test                                      # JVM
+kbb -M:test                                      # JVM
 npx nbb@1.4.210 --classpath src:test:<i64-src> run-tests.cljk
 ```
 
