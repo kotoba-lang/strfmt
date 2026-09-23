@@ -1,5 +1,5 @@
 (ns kotoba.strfmt-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [kotoba.strfmt :as f]
             [kotoba.i64 :as i64]))
 
